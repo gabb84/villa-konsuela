@@ -25,25 +25,25 @@ export default function Gallery() {
           </p>
         </div>
 
-          <ul className="mt-12 grid gap-5 md:grid-cols-7">
-            {tiles.map((t) => (
-              <li
-                key={t.image}
-                className={`overflow-hidden rounded-sm shadow-md ${t.span}`}
-              >
-                <div className="relative h-56 bg-[var(--sand)] md:h-64">
-                  <Image
-                    src={`/images/gallery/${t.image}.jpg`}
-                    alt={t.alt}
-                    fill
-                    sizes="(min-width: 768px) 40vw, 100vw"
-                    className="object-cover"
-                  />
-          </div>
-        </li>
-      ))}
-    </ul>
-          </div>
+        <ul className="mt-12 grid gap-5 md:grid-cols-7">
+          {tiles.map((t) => (
+            <li
+              key={t.image}
+              className={`overflow-hidden rounded-sm shadow-md ${t.span}`}
+            >
+              <div className="relative h-56 bg-[var(--sand)] md:h-64">
+                <Image
+                  src={`/images/gallery/${t.image}.jpg`}
+                  alt={t.alt}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
