@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Send } from "lucide-react";
 
-// TODO: replace with the client's real email
 const CLIENT_EMAIL = "mallarianiramae@gmail.com";
 
 const inputClass =
@@ -20,6 +19,19 @@ export default function ContactForm() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get("topic");
+    const packageName = params.get("package");
+
+    if (topic === "catering" && packageName) {
+      setForm((current) => ({
+        ...current,
+        message: `I’m interested in the ${packageName} catering package. Please share the menu, pricing, and availability.`,
+      }));
+    }
+  }, []);
 
   const update =
     (field: keyof typeof form) =>
@@ -49,9 +61,7 @@ export default function ContactForm() {
 
       <div className="mt-8 space-y-5">
         <div>
-          <label htmlFor="name" className={labelClass}>
-            Full name
-          </label>
+          <label htmlFor="name" className={labelClass}>Full name</label>
           <input
             id="name"
             required
@@ -64,9 +74,7 @@ export default function ContactForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="email" className={labelClass}>
-              Email
-            </label>
+            <label htmlFor="email" className={labelClass}>Email</label>
             <input
               id="email"
               type="email"
@@ -79,9 +87,7 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="phone" className={labelClass}>
-              Phone
-            </label>
+            <label htmlFor="phone" className={labelClass}>Phone</label>
             <input
               id="phone"
               type="tel"
@@ -94,9 +100,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="message" className={labelClass}>
-            Message
-          </label>
+          <label htmlFor="message" className={labelClass}>Message</label>
           <textarea
             id="message"
             required
