@@ -1,0 +1,41 @@
+@import "tailwindcss";
+/* If your old globals.css started with the three "@tailwind" lines (Tailwind v3),
+   use those three lines here instead of the @import above. */
+
+:root {
+  --cream: #faf6ee;
+  --linen: #f1e9d8;
+  --sand: #d9c8ae;
+  --brown: #4a3426;
+  --clay: #b07a52;
+  --gold: #e0a030;
+  --navy: #1f3a5a;
+  --ink: #2b2118;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.font-heading {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
