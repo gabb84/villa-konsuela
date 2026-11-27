@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# booking data (guest info + payment screenshots, never push to GitHub)
+/data
+.env*.local

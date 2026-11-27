@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { CalendarDays, Users } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { rooms } from "./roomsData";
 
@@ -212,6 +213,12 @@ export default function RoomsBrowser() {
                         <dd>{room.highlight}</dd>
                       </div>
                     </dl>
+                    <Link
+                      href={`/booking?room=${room.id}`}
+                      className="mt-4 inline-block rounded bg-[var(--brown)] px-4 py-2 text-xs font-semibold tracking-wider text-white uppercase transition-colors hover:bg-[var(--clay)]"
+                    >
+                      Book this room
+                    </Link>
                   </div>
                 </article>
               ))}
